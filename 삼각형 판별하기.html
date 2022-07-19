@@ -1,0 +1,19 @@
+<!-- 길이가 서로 다른 세개의 변수가 주어진다.
+해당 세개의 막대길이로 삼각형을 만들 수 있으면 yes 아니면 no를 출력하라.-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let maxOfInput = Math.max(a,b,c), 
+                sum = a+b+c;
+                return sum-maxOfInput>maxOfInput ? "YES":"NO";
+            }
+
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>

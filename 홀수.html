@@ -1,0 +1,24 @@
+<!-- 7개 자연수가 주어진다. 이들 중 홀수인 것을 골라서 합과 최솟값을 구하라.-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let arr2 =[],sum=0,min=Number.MAX_SAFE_INTEGER; 
+                arr.reduce((acc,cur)=>{
+                    if(cur%2 !==0){
+                        if(min>cur) min = cur;
+                        sum +=cur;
+                    }
+                });
+                return [sum,min];
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

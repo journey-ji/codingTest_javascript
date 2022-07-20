@@ -1,0 +1,23 @@
+<!-- 10부제...
+날짜의 일의자리 수와 자동차 7대의 번호 끝 두자리 수가 주어질 때,
+10부제를 위반하는 자동차의 대수를 구하라
+끝자리가 일치하는 날에는 운행금지-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(day, arr){
+                let count = 0;
+                for (let item of arr){
+                    if(item%10 === day) count ++;
+                }
+                return count;
+            }
+            arr=[12, 20, 54, 30, 87, 91, 30];
+            console.log(solution(0, arr));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer =Array.from(s);
+                answer = new Set(answer);
+                answer = Array.from(answer);
+                return answer.join('');
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>

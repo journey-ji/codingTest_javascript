@@ -1,0 +1,23 @@
+<!-- 65~90 : 대문자 알파벳-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let count =0;
+                for(let i=0;i<s.length;i++){
+                    if(s.charCodeAt(i)<=90 && s.charCodeAt(i)>=65){
+                        count ++;
+                    }
+                }
+                return count;
+            }
+
+            let str="KoreaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                // 짝수일경우, parseInt()-1 번 인덱스 추가
+                // 홀수일 경우, parseInt() 인덱스만
+                let answer ='',middle=parseInt(s.length/2);
+                if(s.length%2 ===0){
+                    answer +=s[middle-1]+s[middle];
+                }else{
+                    answer += s[middle];
+                }
+                return answer;
+            }
+            console.log(solution("study"));
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer = 0,sum=0,sum2=0;
+                for(let i=0; i<arr.length;i++){
+                    sum2 += arr[i][i];
+                    sum = arr[i].reduce((acc,cur)=>{
+                        acc+=cur;
+                        return acc;
+                    })
+                    if(sum >answer) answer = sum;
+                    sum = 0;
+                    for(let j=0; j<arr[i].length;j++){
+                        sum += arr[j][i];
+                    }
+                    if(sum >answer) answer = sum;
+                }
+                if(sum2>answer) answer = sum2;
+                sum2 = 0;
+                for(let i=arr.length-1;i>-1;i--){
+                    sum2 += arr[i][4-i];
+                }
+                if(sum2>answer) answer = sum2;
+                return answer;
+            }
+            let arr=[[10, 13, 10, 12, 15], 
+                     [12, 39, 30, 23, 11],
+                     [11, 25, 50, 53, 15],
+                     [19, 27, 29, 37, 27],
+                     [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

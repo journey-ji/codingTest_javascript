@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                answer= 0,acc=0;
+                arr.forEach((ele,idx,array) => {
+                    if(ele===1){
+                        acc ++;
+                        answer +=acc;
+                    }else{
+                        acc =0;
+                    }
+                });
+                return answer;
+            }
+            let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

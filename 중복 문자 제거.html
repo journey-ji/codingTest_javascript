@@ -11,7 +11,20 @@
                 answer = Array.from(answer);
                 return answer.join('');
             }
+            function solution2(s){
+                let answer="";
+                for(let i=0; i<s.length;i++){
+                    if(s.indexOf(s[i])===i) answer +=s[i];
+                }
+                return answer;
+            }
+            console.time('code_measure');
+            console.log(solution2("ksekkset"));
+            console.timeEnd('code_measure');
+            console.time('code_measure');
             console.log(solution("ksekkset"));
+            console.timeEnd('code_measure');
+            
         </script>
     </body>
 </html>

@@ -8,16 +8,14 @@
         <script>
             function solution(s){         
                 let count =0;
-                for(let i=0;i<s.length;i++){
-                    if(s.charCodeAt(i)<=90 && s.charCodeAt(i)>=65){
-                        count ++;
-                    }
+                for(x of s){
+                    if(x ===x.toUpperCase()) count++;
                 }
                 return count;
             }
-
             let str="KoreaTimeGood";
             console.log(solution(str));
         </script>
     </body>
 </html>
+

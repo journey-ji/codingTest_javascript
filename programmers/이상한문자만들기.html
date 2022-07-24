@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+            function solution(s) {
+                var temp = s.split(' '),answer=[];
+                temp.forEach((ele,idx)=>{
+                    let tempStr ='';
+                    for(let i=0; i<ele.length;i++){
+                        if(i%2!==0){
+                            tempStr += ele[i].toLowerCase();
+                        }else{
+                            tempStr += ele[i].toUpperCase();
+                        }
+                    }
+                    answer.push(tempStr);
+                });
+                return answer.join(' ');
+            }
+            console.time("time_measure");
+            console.log(solution("try this at home"));
+            console.timeEnd("time_measure");
+        </script>
+    </body>
+</html>

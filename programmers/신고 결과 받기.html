@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <script>
+            function solution(id_list, report, k) {
+                var answer = new Array(id_list.length).fill(0);
+                var answer2 = new Array(id_list.length).fill(0);
+
+                let temp = Array.from(Array(id_list.length).fill(0),()=>new Array(id_list.length).fill(0));
+                report.forEach((ele,i)=>{
+                    let [reporter, reportee] =ele.split(' ');
+
+                    temp[id_list.indexOf(reporter)][id_list.indexOf(reportee)] = 1;
+                });
+
+                for(let i=0; i<id_list.length;i++){
+                    let count =0;
+                    for(let j=0; j<id_list.length;j++){
+                        if(temp[j][i]===1) count++;
+                    }
+                    if (count>=k) answer[i] ++;
+                }
+                for(let i=0;i<id_list.length;i++){
+                    if(answer[i] === 1){
+                        for(let j=0; j<id_list.length;j++){
+                            if(temp[j][i] === 1) answer2[j] ++;
+                        }    
+                    }
+                }
+                return answer2;
+            }
+        </script>
+    </body>
+</html>

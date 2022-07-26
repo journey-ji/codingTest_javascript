@@ -1,0 +1,41 @@
+<script>
+    function solution(s){
+        let temp =s[0], count =1;
+        let answer='';
+        for(let i=1; i<s.length;i++){
+            if(s[i]===temp){
+                count++;
+            }else{
+                if(count ===1){
+                    answer += temp;
+                    temp =s[i];
+                }else{
+                    answer +=temp+String(count);
+                    temp = s[i];
+                    count = 1;
+                }
+            }
+        }
+        if(count ===1){
+            answer += temp;
+        }else{
+            answer +=temp+String(count);
+        }
+        return answer;
+    }
+    function solution2(s){
+        let answer ='';
+        let cnt = 1;
+        let temp = s +" ";
+        for(let i=0; i<temp.length-1;i++){
+            if(temp[i]===temp[i+1]) cnt++;
+            else{
+                answer +=temp[i];
+                if(cnt>1)answer+=String(cnt);
+                cnt =1;
+            }
+        }
+        return answer;
+    }
+    console.log(solution2('KKHSSSSSSSE'));
+</script>

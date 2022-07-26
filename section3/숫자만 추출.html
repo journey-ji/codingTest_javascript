@@ -14,9 +14,15 @@
                 }
                 return parseInt(answer);
             }
+            function solution2(str){
+                let answer ='';
+                let temp = str.replace(/[^0-9]/g,'');
+                temp = parseInt(temp);
+                return temp;
+            }
             
             let str="g0en2T0s8eSoft";
-            console.log(solution(str));
+            console.log(solution2(str));
         </script>
     </body>
 </html>

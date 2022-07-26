@@ -6,9 +6,21 @@
     <body>
         <script>
             function solution(s, t){
-                
+                let right_dis=s.indexOf(t);
+                let left_dis=100;
+                let answer=[right_dis];
+                for(i=1;i<s.length;i++){
+                    right_dis --;
+                    left_dis ++;
+                    console.log(`왼쪽 거리 : ${left_dis}, 오른쪽 거리 : ${right_dis}`);
+                    answer.push(Math.min(right_dis,left_dis));
+                    if(right_dis===0){
+                        right_dis = s.indexOf(t,i+1)-(i);
+                        left_dis = 0;
+                    }
+                }
+                return answer;
             }
-            
             let str="teachermode";
             console.log(solution(str, 'e'));
         </script>

@@ -5,10 +5,22 @@
     </head>
     <body>
         <script>
+            // function solution(s){
+            //     let alphabet = /[a-z|A-Z]/,temp='';
+            //     for(let i=0;i<s.length;i++){
+            //         if(alphabet.test(s[i])){
+            //             temp +=s[i];
+            //         }
+            //     }
+            //     temp = temp.toLowerCase();
+            //     return temp===temp.split('').reverse().join('') ? "YES":"NO";
+            // }
             function solution(s){
-                
+                let answer = "YES";
+                let temp = s.toLowerCase().replace(/[^a-z]/g,'');
+                if(temp.split('').reverse().join('') !==s) return "NO";
+                return answer;
             }
-            
             let str="found7, time: study; Yduts; emit, 7Dnuof";
             console.log(solution(str));
         </script>

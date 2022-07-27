@@ -1,0 +1,22 @@
+<script>
+    function solution(s) {
+        var answer = s.length;
+        let temp = s;
+        let cnt = 1;
+        let tempString='';
+        for(let i=1; i<=temp.length/2; i++){
+            for(let idx=0; idx<=temp.length-i;idx+=i){
+                if(temp.substr(idx,i)=== temp.substr(idx+i,i)) cnt++;
+                else{
+                    if(cnt>1) tempString+=String(cnt);
+                    tempString+=temp.substr(idx,i);
+                    cnt =1;
+                }
+                if( idx+i > temp.length-i) tempString +=temp.substr(idx+i);
+            }
+            if(answer>tempString.length) answer = tempString.length;
+            tempString ='';
+        }
+        return answer;
+    }
+</script>

@@ -1,0 +1,24 @@
+<script>
+    function solution(n,arr){
+        let maxNum = Number.MIN_SAFE_INTEGER;
+        let tempNum = 0;
+        arr.forEach(element => {
+            let sumNum = 0;
+            let temp = element;
+            while(parseInt(temp/10) !==0){
+                sumNum += temp%10;
+                temp = parseInt(temp/10);
+            }
+            sumNum += temp%10;
+            if(sumNum>maxNum){
+                maxNum = sumNum;
+                tempNum = element;
+            }else if(sumNum === maxNum){
+                tempNum = tempNum>element? tempNum:element;
+            }
+        });
+        return tempNum;
+    }
+    let arr=[128, 460, 603, 40, 521, 137, 123];
+    console.log(solution(7, arr));
+</script>

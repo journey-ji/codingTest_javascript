@@ -1,6 +1,27 @@
+<!--
+    우선,,
+    첫째 행을 기준으로, 
+-->
 <script>
     function solution(test){
-
+        let answer = [];
+        let stand = test[0];
+        console.log(stand);
+        let found = false;
+        for(let i=0; i<stand.length-1;i++){
+            for(let j=i+1; j<stand.length; j++){
+                for(let k=1; k<test.length;k++){
+                    if(test[k].indexOf(stand[i])>test[k].indexOf(stand[j])){
+                        found = true;
+                    }
+                }
+                if(found === false){
+                    answer.push([stand[i],stand[j]]);
+                }
+                found = false;
+            }
+        }
+        return answer;
     }
     let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
     console.log(solution(arr));

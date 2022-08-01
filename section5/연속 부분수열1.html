@@ -12,21 +12,16 @@
         }
         return answer
     }
+    // two pointer algorithm..
     function solution2(m,arr){
         let lt=rt = 0;
         let sum =arr[rt];
         let answer= 0;
         while(lt <arr.length && rt < arr.length){
-            if(sum<m){
-                rt ++;
-                sum +=arr[rt];
-            }else if(sum > m){
-                sum -= arr[lt];
-                lt ++;
-            }else{
-                answer++;
-                sum -= arr[lt];
-                lt ++;
+            if(sum<m) sum +=arr[++rt];
+            else if(sum >= m){
+                if(sum ===m) answer ++;
+                sum -= arr[lt++];
             }
         }
         return answer;

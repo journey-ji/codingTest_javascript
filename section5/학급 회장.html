@@ -1,0 +1,35 @@
+<!-- 해쉬 -->
+<script>
+    function solution(s){
+        let a = new Array(5).fill(0);
+        let char = {
+            'A':0,
+            'B':1,
+            'C':2,
+            'D':3,
+            'E':4,
+        }
+        for(let x of s){
+            a[char[x]]++;
+        }
+        return Object.keys(char)[a.indexOf(Math.max(...a))];
+    }
+    function solution2(s){
+        let answer;
+        let sH = new Map();
+        for(let x of s){
+            if(sH.has(x)) sH.set(x,sH.get(x)+1);
+            else sH.set(x,1);
+        }
+        let max = Number.MIN_SAFE_INTEGER;
+        for(let [key,val] of sH){
+            if(val>max){
+                max = val;
+                answer= key;
+            }
+        }
+        return answer;
+    }
+    let str="BACBACCACCBDEDE";
+    console.log(solution2(str));
+</script>

@@ -1,0 +1,36 @@
+<!-- 해쉬 -->
+<script>
+    function solution(str1,str2){
+        let cH = new Map();
+        let cH2 = new Map();
+        let answer = "YES";
+        for(let i=0; i<str1.length;i++){
+            if(cH.has(str1[i])) cH.set(str1[i],cH.get(str1[i])+1);
+            else cH.set(str1[i],1);
+            if(cH2.has(str2[i])) cH2.set(str2[i],cH2.get(str2[i])+1);
+            else cH2.set(str2[i],1);
+        }
+        for(let [key,val] of cH){
+            if(cH2.get(key)!==val){
+                answer ="NO";       
+            }
+        }
+        return answer;
+    }
+    function solution2(str1,str2){
+        let answer ="YES";
+        let hash = new Map();
+        for(let x of str1){
+            if(hash.has(x)) hash.set(x,hash.get(x)+1);
+            else hash.set(x,1);
+        }
+        for(let x of str2){
+            if(hash.get(x)>=1) hash.set(x,hash.get(x)-1);
+            else return "NO";
+        }
+        return answer;
+    }
+    let a="AbaAeCe";
+    let b="baeeACA";
+    console.log(solution2(a, b));
+</script>

@@ -1,0 +1,35 @@
+<!-- 슬라이딩 윈도우, 해시, two pointer -->
+<script>
+    function solution(s,t){
+        let answer = 0;
+        let sH = new Map();
+        let lt=0;
+        let rt = t.length-1;
+        for(let i =0; i<t.length;i++){
+            if(sH.has(s[i])) sH.set(s[i],sH.get(s[i])+1);
+            else sH.set(s[i],1);
+        }
+        while(rt<s.length){
+            let found = true;
+            let temp = new Map(sH);
+            for(let x of t){
+                if(temp.get(x)>=1){
+                    temp.set(x,temp.get(x)-1);
+                }else{
+                    found = false;
+                    break;
+                }
+            }
+            if(found) answer++;
+            rt++;
+            if(sH.has(s[rt])) sH.set(s[rt],sH.get(s[rt])+1);
+            else sH.set(s[rt],1);
+            sH.set(s[lt],sH.get(s[lt])-1);
+            lt ++;
+        }
+        return answer;
+    }
+    let a="bacaAacba";
+    let b="abc";
+    console.log(solution(a, b));
+</script>

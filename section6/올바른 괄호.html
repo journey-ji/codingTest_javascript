@@ -1,0 +1,33 @@
+<script>
+    function solution(s){
+        let answer = "YES";
+        let temp = Array.from(s);
+        let stack=[];
+        for(let x of temp){
+            if(x ==='(') stack.push(x);
+            else{
+                if(stack.length>=1) stack.pop();
+                else return "NO";
+            }
+        }
+        if(stack.length>=1) return "NO";
+        return answer;
+    }
+    // 효율성 검사를 위해 스택 대신 cnt 사용
+    function solution2(s){
+        let answer = true;
+        let temp = Array.from(s);
+        let cnt = 0;
+        for(let x of temp){
+            if(x ==='(') cnt ++;
+            else{
+                if(cnt>=1) cnt --;
+                else return false;
+            }
+        }
+        if(cnt>=1) return false;
+        return answer;
+    }
+    let a="(()(()))(()";
+    console.log(solution(a));
+</script>

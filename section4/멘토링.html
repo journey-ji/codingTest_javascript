@@ -5,18 +5,17 @@
 <script>
     function solution(test){
         let answer = [];
-        let stand = test[0];
-        console.log(stand);
+        let p = test[0];
         let found = false;
-        for(let i=0; i<stand.length-1;i++){
-            for(let j=i+1; j<stand.length; j++){
+        for(let i=0; i<p.length-1;i++){
+            for(let j=i+1; j<p.length; j++){
                 for(let k=1; k<test.length;k++){
-                    if(test[k].indexOf(stand[i])>test[k].indexOf(stand[j])){
+                    if(test[k].indexOf(p[i])>test[k].indexOf(p[j])){
                         found = true;
                     }
                 }
                 if(found === false){
-                    answer.push([stand[i],stand[j]]);
+                    answer.push([p[i],p[j]]);
                 }
                 found = false;
             }

@@ -1,11 +1,14 @@
 <script>
     function solution(s){
-        let answer = 0;
         let stack = [];
-        for(let i=0; i<s.length;i++){
-            console.log(typeof /[0-9]/);
+        for(let x of s){
+            if(x ==='+')stack.push(stack.pop()+stack.pop());
+            else if(x ==='-') stack.push(-(stack.pop()-stack.pop()));
+            else if(x==='*') stack.push(stack.pop()*stack.pop());
+            else if(x ==='/') stack.push(stack.pop()/stack.pop());
+            else stack.push(Number(x));
         }
-        return answer;
+        return stack.pop();
     }
     let str="352+*9-";
     console.log(solution(str));

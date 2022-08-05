@@ -1,0 +1,46 @@
+<!--
+    solution 풀이과정
+    이전 괄호(prev)를 저장해둬야 해 
+    경우 1, stack = 0, prev = x, cur ='(' -> stack push 
+    경우 2, stack = n, prev = '(', cur = '(' ->stack push
+    경우 3, stack = n, prev = '(', cur = ')' ->stack.pop(); , answer +=stack.length;, 
+    경우 4, stack = n, prev = ')', cur = '(' ->stack push
+    경우 5, stack = n, prev = ')', cur = ')' -> stack.pop(); answer ++;
+
+    solution2 풀이과정
+    여는 괄호 = push
+    닫는 괄호 = 직전의 괄호 체크, 여는괄호 = 레이져, 닫는괄호 =막대 끝
+-->
+<script>
+    function solution(s){
+        let stack = [];
+        let prev ='';
+        let answer =0;
+        for(let x of s){
+            if(prev==='(' && x===')'){
+                stack.pop();
+                answer += stack.length;
+            }else if(prev===')' && x===')'){
+                stack.pop();
+                answer ++;
+            }else stack.push('(');
+            prev =x;
+        }
+        return answer;
+    }
+    function solution2(s){
+        let stack =[];
+        let answer=0;
+        for(let i=0; i<s.length; i++){
+            if(s[i] === '(') stack.push(s[i]);
+            else{
+                stack.pop();
+                if(s[i-1]==='(') answer += stack.length;
+                else answer ++;
+            }
+        }
+        return answer;
+    }
+    let a="()(((()())(())()))(())";
+    console.log(solution2(a));
+</script>

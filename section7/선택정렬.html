@@ -1,0 +1,26 @@
+<!-- 선택정렬
+n^2 의 시간 복잡도
+가장 작은 수를 먼저 찾아서 앞에 두는 방식
+-->
+<script>
+    function solution(arr){
+        let temp = [...arr];
+        let min_index;
+        let min =0;
+        for(let i=0; i<temp.length-1;i++){
+            min_index = i;
+            min = temp[i];
+            for(let j=i+1; j<temp.length;j++){
+                if(temp[j]<min) {
+                    min_index = j;
+                    min = temp[j];
+                }
+            }
+            [temp[i], temp[min_index]] = [temp[min_index],temp[i]];
+        }
+        
+        return temp
+    }
+    let arr=[13, 5, 11, 7, 23, 15];
+    console.log(solution(arr));
+</script>

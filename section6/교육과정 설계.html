@@ -1,0 +1,19 @@
+<!-- 
+    
+-->
+<script>
+    function solution(need,plan){
+        let temp = [...need];
+        let answer = "YES";
+        for(let i=0; i<plan.length; i++){
+            if(temp[0]===plan[i]){
+                temp.push(temp.shift());
+            }
+        }
+        if(temp.join('') !== need) answer= "NO";
+        return answer;
+    }
+    let a="CBA";
+    let b="CBDAGE";
+    console.log(solution(a, b));
+</script>

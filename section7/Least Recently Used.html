@@ -1,0 +1,28 @@
+<!--
+    경우1, 배열에 없는 값을 넣음
+    경우2, 배열에 존재하는 값을 넣음
+    경우2-1, 첫번째 인덱스에 값이 존재
+    경우2-2, 첫번째 인덱스가 아닌 곳에 값이 존재
+    
+    경우 1로부터 파생된 삽입경우
+    삽입경우1, 새로운 값을 추가하려는데 배열이 꽉 참
+    삽입경우2, 새로운 값을 추가하려는데 배열에 자리가 있음
+    
+-->
+<script>
+    function solution(size,arr){
+        let answer = Array.from({length:size}).fill(0);
+        arr.forEach(element => {
+            if(answer.indexOf(element)!== -1){
+                answer.splice(answer.indexOf(element),1);
+                answer.unshift(element);
+            }else{
+                answer.pop();
+                answer.unshift(element);
+            }
+            console.log(answer);
+        });
+    }
+    let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7];
+    console.log(solution(5, arr));
+</script>

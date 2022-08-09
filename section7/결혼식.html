@@ -1,0 +1,46 @@
+<!-- 
+    방법1, 72시간, 시간별로 입장하객수 체크
+    방법2, 각 요소를 돌면서 cnt 를 더하고 줄여나가는 방식
+-->
+<script>
+    function solution(times){
+        let temp = [...times];
+        let max = 0;
+        let cnt =0;
+        temp.sort((a,b)=>a[0]-b[0]);
+        for(let i=0; i<72;i++){
+            temp.forEach(val=>{
+                if(i>=val[0] && i<val[1]) cnt ++;
+            })
+            if(cnt> max) max = cnt;
+            cnt = 0;
+        }
+        return max;
+    }
+    function solution2(times){
+        let temp = [...times];
+        let t =[];
+        let max = 0;
+        let cnt=0;
+        temp.sort((a,b)=>a[0]-b[0]);
+        t.push(temp[0][1]);
+        cnt ++;
+        for(let i=1; i<temp.length;i++){
+            if(t[0]>temp[i][0]){
+                t.push(temp[i][1]);
+                cnt++;
+            }else{
+                while(t[0]<=temp[i][0]){
+                    t.shift();
+                    cnt --;
+                }
+                t.push(temp[i][1]);
+                cnt ++;
+            }
+            if(cnt>max) max = cnt;
+        }
+        return max;
+    }
+    let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
+    console.log(solution2(arr));
+</script>

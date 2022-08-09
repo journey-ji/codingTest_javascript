@@ -1,0 +1,22 @@
+<!-- 
+    1단계, 현재 인덱스요소> 다음 인덱스요소 인 것을 larger에 저장
+    2단계, 현재 인덱스요소= 다음 인덱스요소 인 것을 same에 저장
+    3단계, larger가 존재하는지 확인,
+    3-1, larger가 2개 존재한다면 바로 출력
+    3-2, larger가 1개 존재한다면 
+-->
+<script>
+    function solution(arr){
+        let answer =[];
+        let sortArr = [...arr];
+        sortArr = sortArr.sort((a,b)=>a-b);
+        for(let i=0; i<arr.length;i++){
+            if(arr[i] !== sortArr[i]) answer.push(i+1);
+        }
+        return answer;
+    }
+    let arr=[120,120,125,125,131,130,130];
+    console.log(solution(arr));
+    // 120, 125, 121,121, 130
+    // 
+</script>

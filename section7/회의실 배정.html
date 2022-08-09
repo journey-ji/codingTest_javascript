@@ -1,0 +1,23 @@
+<script>
+    function solution(meetings){
+        let answer =0;
+        let max = Number.MIN_SAFE_INTEGER;
+        let temp = 0;
+        let cnt =0;
+        for(let i=0; i<meetings.length-1;i++){
+            temp = meetings[i][1];
+            cnt ++;
+            for(let j=i+1; j<meetings.length; j++){
+                if(meetings[j][0]>=temp){
+                    temp = meetings[j][1];
+                    cnt++;
+                }
+            }
+            if(cnt>max) max = cnt;
+            cnt =0;
+        }
+        return max;
+    }
+    let arr=[[1, 4], [2, 3], [3, 5], [4, 6], [5, 7]];
+    console.log(solution(arr));
+</script>

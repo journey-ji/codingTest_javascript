@@ -1,8 +1,19 @@
 <script>
     function solution(target,arr){
         let temp = [...arr].sort((a,b)=>a-b);
-
+        let start=0, end =temp.length-1;
+        let key =Math.floor(end/2);
         console.log(temp);
+        while(temp[key]!==target){
+            if(target<temp[key]){
+                end = key-1;
+                key = Math.floor((start+end)/2);
+            }else if(target>temp[key]){
+                start = key+1;
+                key = Math.floor((start+end)/2);
+            }
+        }
+        return key+1;
     }
     let arr=[23, 87, 65, 12, 57, 32, 99, 81];
     console.log(solution(32, arr));

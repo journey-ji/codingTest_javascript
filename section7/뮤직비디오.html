@@ -1,0 +1,31 @@
+<script>
+    function NumCounter(key,m,arr){
+        let cnt = 1, temp =0;
+        arr.forEach(element => {
+            temp +=element;
+            if(temp>key){
+                cnt++;
+                temp = element;
+            }
+        });
+        if(cnt>m) return false;
+        return true;
+    }
+    function solution(m,songs){
+        let answer,key;
+        let start = Math.max(...songs);
+        let end = songs.reduce((a,b)=>a+b,0);
+        while(start<=end){
+            key = Math.floor((start+end)/2);
+            if(NumCounter(key,m,arr)){
+                answer = key;
+                end = key-1;
+            }else{
+                start = key+1;
+            }
+        }
+        return answer;
+    }
+    let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+    console.log(solution(3, arr));
+</script>

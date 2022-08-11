@@ -1,0 +1,40 @@
+<!-- 
+    일단, 마구간의 위치 오름차순으로 sort
+    c필의 말이 존재하면, 두필의 말은 양 끝에 위치
+
+    
+
+-->
+<script>
+    let cnt =0;
+    function count(stable,dist){
+        let cnt = 1;
+        let endPoint = 0;
+        for(let i=1; i<stable.length; i++){
+            if(stable[i]-stable[endPoint]>=dist){
+                cnt ++;
+                endPoint = i;
+            }
+        }
+        return cnt;
+    }
+    function solution(c,stable){
+        stable = stable.sort((a,b)=>a-b);
+        let lt = 1;
+        let rt = Math.max(...stable);
+        let answer;
+        while(lt<=rt){
+            let mid = parseInt((lt+rt)/2);
+            if(count(stable,mid)>=c){  
+                answer = mid;
+                lt = mid+1;
+            } 
+            else{
+                rt = mid-1;
+            }
+        }
+        return answer;
+    }
+    let arr=[1, 2, 8, 4, 9];
+    console.log(solution(3, arr));
+</script>

@@ -1,0 +1,14 @@
+<!-- 
+    재귀함수를 사용해서 N까지의 수를 출력하라...
+-->
+<script>
+    function DFS(n){
+        if(n ===0) return false;
+        DFS(n-1);
+        console.log(n);
+    }
+    function solution(n){
+        DFS(n);
+    }
+    solution(3);
+</script>

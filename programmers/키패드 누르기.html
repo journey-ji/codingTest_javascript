@@ -1,0 +1,52 @@
+<script>
+        // 키 위치를 반환해주는 함수
+    function findKey(key){
+        let keypad = [[1,2,3],[4,5,6],[7,8,9],['*',0,'#']];
+        let i,j;
+        for(let idx=0; idx<keypad.length;idx++){
+            if(keypad[idx].indexOf(key)>=0){
+                i = idx;
+                j = keypad[idx].indexOf(key);
+            }
+        }
+        return [i+1,j+1];
+    }
+    function solution(numbers, hand) {
+        let answer ='';
+        let l_finger =[4,1], r_finger =[4,3], mid = [];
+        let l_diff,r_diff;
+        numbers.forEach(ele=>{
+            if([1,4,7].includes(ele)) {
+                l_finger = findKey(ele);
+                answer +='L';
+            }else if([3,6,9].includes(ele)){
+                r_finger = findKey(ele);
+                answer +='R';
+            }else{
+                mid = findKey(ele);
+                l_diff = Math.abs(mid[0]-l_finger[0])+Math.abs(mid[1]-l_finger[1]);
+                r_diff = Math.abs(mid[0]-r_finger[0])+Math.abs(mid[1]-r_finger[1]);
+                if(l_diff>r_diff){
+                    r_finger = findKey(ele);
+                    answer +='R';  
+                } 
+                else if(l_diff<r_diff){
+                    answer +='L';
+                    l_finger = findKey(ele);
+                } 
+                else{
+                    if(hand ==='right'){
+                        r_finger = findKey(ele);
+                        answer +='R';
+                    }else{
+                        l_finger = findKey(ele);
+                        answer +='L';
+                    }
+                }
+            }
+            return answer;
+        });
+
+        return answer;
+    }
+</script>

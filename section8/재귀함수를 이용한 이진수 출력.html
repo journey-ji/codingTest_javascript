@@ -1,0 +1,15 @@
+<!--
+    10진수 n이 입력되면 2진수로 변환하여 출력 !
+-->
+<script>
+    function DFS(n){
+        if(n===1) return '1';
+        return DFS(parseInt(n/2))+String(n%2);
+    }
+    function solution(n){
+        let answer ='';
+        answer += DFS(n);
+        return answer;
+    }
+    console.log(solution(11));
+</script>

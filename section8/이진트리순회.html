@@ -1,0 +1,29 @@
+<script>
+    function solution(n){
+        let answer=[];
+        function preOrder(v){
+            if(v>7) return;
+            answer.push(v);
+            preOrder(2*v);
+            preOrder(2*v+1);
+            return;
+        }
+        function inOrder(v){
+            if(v>7) return;
+            inOrder(2*v);
+            answer.push(v);
+            inOrder(2*v+1);
+            return;
+        }
+        function postOrder(v){
+            if(v>7) return;
+            postOrder(2*v);
+            postOrder(2*v+1);
+            answer.push(v);
+            return;
+        }
+        postOrder(n);
+        return answer;
+    }
+    console.log(solution(1));
+</script>

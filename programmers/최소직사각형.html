@@ -1,15 +1,12 @@
 <script>
     function solution(sizes) {
-    
-        let max_one =  max_two = 0;
+        let x = sizes.map(val=>val[0]);
+        let y = sizes.map(val=>val[1]);
         for(let i=0; i<sizes.length;i++){
-            max_one = max_one<sizes[i][0] ?  sizes[i][0]:max_one;
-            max_two = max_two<sizes[i][1] ?  sizes[i][1]:max_two;
+            if(x[i]<y[i]){
+                [x[i],y[i]] = [y[i],x[i]];
+            }
         }
-        for(let i=0; i<sizes.length; i++){
-            max_one = max_one<sizes[i][1] ?  sizes[i][1]:max_one;
-            max_two = max_two<sizes[i][0] ?  sizes[i][0]:max_two;
-        }
-        return max_one*max_two;
+        return Math.max(...x)*Math.max(...y);
     }
 </script>

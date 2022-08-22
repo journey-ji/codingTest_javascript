@@ -1,0 +1,26 @@
+<script>
+    function solution(m,arr){
+        let answer =0;
+        let n = arr.length;
+        let chk = Array.from({length:m},()=>0);
+        function DFS(L){
+            if(L>m)return;
+            if(L===m){
+                answer ++;
+                console.log(chk);
+                return;
+            }
+            for(let i=0; i<n;i++){
+                if(!chk.includes(arr[i])){
+                    chk[L]=arr[i];
+                    DFS(L+1);
+                    chk[L] = 0;
+                }
+            }
+        }
+        DFS(0);
+        return answer;    
+    }
+    let arr=[3, 6, 9];
+    console.log(solution(2, arr));
+</script>

@@ -1,0 +1,23 @@
+<script>
+    function solution(n,r){
+        let chk = Array.from({length:n+1},()=>
+            Array.from({length:r+1},()=>0)
+        );
+        function DFS(n,r){
+            if(n===1 && r===1) return 1;
+            if(n===r) return 1;
+            if(r<=0) return 1;
+            if(chk[n][r] !==0){
+                return chk[n][r];
+            } 
+            else{
+                chk[n][r] = DFS(n-1,r-1)+DFS(n-1,r);
+                return chk[n][r];
+            }
+        }
+        console.log(chk);
+        return DFS(n,r);
+        
+    }
+    console.log(solution(33,19));
+</script>

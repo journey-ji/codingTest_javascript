@@ -1,0 +1,47 @@
+
+<script>
+    function solution(n,f){
+        let answer=[], flag=0;
+        let combi_chk =Array.from({length:n+1},()=>
+            Array.from({length:n+1},()=>0));
+    
+        function combination(n,r){
+            if(n===1 && r===1) return 1;
+            if(n===r) return 1;
+            if(r<=0) return 1;
+            if(combi_chk[n][r] !==0){
+                return combi_chk[n][r];
+            } 
+            else{
+                combi_chk[n][r] = combination(n-1,r-1)+combination(n-1,r);
+                return combi_chk[n][r];
+            }
+        }
+        let temp = Array.from({length:n},(val,idx)=>
+            val = combination(n-1,idx)
+        );
+
+        
+        let chk = Array.from({length:n},()=>0);
+        function DFS(L,sum){
+            if(flag) return;
+            if(L===n){
+                if(sum === f){
+                    answer = chk.slice();
+                    flag = 1;
+                }
+                return;
+            }
+            for(let i=1; i<=n;i++){
+                if(!chk.includes(i)){
+                    chk[L]=i;
+                    DFS(L+1,sum+(temp[L]*i));
+                    chk[L] = 0;
+                }
+            }
+        }
+        DFS(0,0);
+        return answer;
+    }
+    console.log(solution(4, 16));
+</script>

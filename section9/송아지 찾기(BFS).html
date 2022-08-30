@@ -1,0 +1,36 @@
+<script>
+    function solution(s,e){
+        let chk =Array.from({length:10000},()=>0);
+        let current = 0;
+        let temp = [];
+        temp.push(s);
+        let dis =Array.from({length:10000},()=>0);
+        while(true){
+            current = temp.shift();
+            if(current === e) break;
+            if(chk[current-1]===0){
+                dis[current-1] = dis[current]+1;
+                temp.push(current-1);
+                chk[current-1] = 1;
+            }
+            if(chk[current+1]===0){
+                dis[current+1] = dis[current]+1;
+                temp.push(current+1);
+                chk[current+1] = 1;
+            }
+            if(chk[current+5]===0){
+                dis[current+5] = dis[current]+1;
+                temp.push(current+5);
+                chk[current+5] = 1;
+            }
+        }
+        return dis[e];
+    }
+    console.log(solution(8,3));
+</script>
+<!--
+                5 
+            4       6         10
+        3 5 9   7 11            15
+    2      8 14
+-->

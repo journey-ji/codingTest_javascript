@@ -1,0 +1,17 @@
+<script>
+    function solution(){
+        let answer= "";
+        let queue = [];
+        queue.push(1);
+        let temp =0;
+        while(true){
+            temp = queue.shift();
+            answer += temp+" ";
+            if(temp===7)break;
+            queue.push(temp*2);
+            queue.push(temp*2+1);
+        }
+        return answer;
+    }
+    console.log(solution());
+</script>

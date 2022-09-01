@@ -1,0 +1,16 @@
+<script>
+    function solution(m,arr){
+        let dp = Array.from({length:m+1},()=>0)
+        for(let i=0; i<arr.length; i++){
+            let p_score = arr[i][0];
+            let p_time = arr[i][1];
+            for(let j = m; j>=p_time;j--){
+                dp[j] = Math.max(dp[j],dp[j-p_time]+p_score);
+            }
+        }
+        console.log(dp);
+        return dp[m];
+    }   
+    let arr=[[10, 5], [25, 12], [15, 8], [6, 3], [7, 4]];
+    console.log(solution(20, arr));
+</script>

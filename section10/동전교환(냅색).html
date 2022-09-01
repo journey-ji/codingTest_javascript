@@ -1,0 +1,20 @@
+<script>
+    function solution(m,coin){
+        let dp = Array.from({length:coin.length+1},()=>0);
+        for(let i=0;i<=m;i++){
+            dp[i]=i;
+        }
+        console.log(dp);
+        for(let i=2; i<=m;i++){
+            for(let j=0;j<coin.length;j++){
+                if(i-coin[j]>=0){
+                    dp[i] = Math.min(dp[i],dp[i-coin[j]]+1)
+                }
+            }
+        }
+        console.log(dp);
+        return dp[m];
+    }
+    let arr=[1, 2, 5];
+    console.log(solution(15, arr));
+</script>

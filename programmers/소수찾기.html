@@ -1,0 +1,17 @@
+<script>
+    function solution(n) {
+        let prime = Array.from({length:n+1},()=>false);
+        for(let i=2; i<=n;i++){
+            if(!prime[i]){
+                for(let j=i*2; j<=n;j +=i){
+                    prime[j]= true;
+                }
+            }
+        }
+        for(let i=2;i<=n;i++){
+            prime[i]= !prime[i];
+        }
+        return prime.filter(ele=> ele).length;
+    }
+    console.log(solution(13));
+</script>

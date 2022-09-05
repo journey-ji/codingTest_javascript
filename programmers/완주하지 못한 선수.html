@@ -1,0 +1,19 @@
+<script>
+    function solution(participant, completion) {
+        let answer = '';
+        let hash = new Map();
+        for(x of participant){
+            if(hash.has(x)) hash.set(x,hash.get(x)+1);
+            else hash.set(x,1);
+        }
+        for (x of completion){
+            if(hash.has(x)>0) hash.set(x,hash.get(x)-1);
+            if(hash.get(x)===0) hash.delete(x);
+        }
+        hash.forEach((val,key)=>{
+            if(val===1)
+                answer = key;
+        })
+        return answer;
+    }
+</script>

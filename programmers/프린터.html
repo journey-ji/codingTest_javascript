@@ -1,0 +1,19 @@
+<script>
+    function solution(priorities, location) {
+        let answer = 0;
+        let chk = location;
+        while(true){
+            let item = priorities.shift();
+            if(item < Math.max(...priorities)){
+                priorities.push(item);
+                if(chk===0) chk = priorities.length-1;
+                else chk -=1;
+            }else{
+                answer ++;
+                if(chk===0) break;
+                else chk -=1;
+            }
+        }
+        return answer;
+    }
+</script>

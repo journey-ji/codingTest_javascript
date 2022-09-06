@@ -1,0 +1,13 @@
+<script>
+    function solution(numbers) {
+        let answer = -1;
+        let chk = Array.from({length:10},()=>0);
+        numbers.forEach(val=>{
+            chk[val] =1;
+        });
+        chk.forEach((val,idx)=>{
+        if(val===0) answer +=idx;
+        });
+        return ++answer;
+    }
+</script>

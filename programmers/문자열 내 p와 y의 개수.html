@@ -1,0 +1,13 @@
+<script>
+    function solution(s){
+        let answer = 0;
+        let temp_p = /[p|P]/;
+        let temp_y = /[y|Y]/;
+        for(x of s){
+            if(temp_p.test(x)) answer ++;
+            else if(temp_y.test(x)) answer --;
+        }
+        if(answer ===0) return true;
+        else return false;
+    }
+</script>

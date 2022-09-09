@@ -1,0 +1,16 @@
+<script>
+    function solution(n) {
+        let answer = 0;
+        let temp ='';
+        while(n>=3){
+            temp = n%3+temp;
+            n=parseInt(n/3);
+        }
+        temp=n+temp;
+        for(let i=0; i<temp.length;i++){
+            answer += temp[i]*Math.pow(3,i);
+        }
+        console.log(temp);
+        return answer;
+    }
+</script>

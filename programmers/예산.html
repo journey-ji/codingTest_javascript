@@ -1,0 +1,15 @@
+<script>
+    function solution(d, budget) {
+        let cnt =0;
+        d.sort((a,b)=>a-b);
+        for(let i=0;i<d.length;i++){
+            budget-=d[i];
+            cnt++;
+            if(budget<0){
+                cnt--;
+                break;
+            }
+        }   
+        return cnt;
+    }
+</script>

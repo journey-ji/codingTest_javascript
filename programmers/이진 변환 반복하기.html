@@ -1,0 +1,24 @@
+<script>
+    function solution(s) {
+        let answer = [];
+        let cnt=0;
+        let zero_cnt=0;
+        while(true){
+            if(s==='1') break
+            
+            zero_cnt+= s.length
+            s=s.replace(/0/g,'').length
+            zero_cnt-=s
+            let temp = '';
+            while(s>1){
+                temp = s%2+temp
+                s=parseInt(s/2)
+            }
+            temp = s+temp;
+            s= temp;
+            cnt ++;
+        }
+        answer.push(cnt,zero_cnt)
+        return answer;
+    }
+</script>

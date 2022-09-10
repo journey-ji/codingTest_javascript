@@ -1,0 +1,12 @@
+<script>
+    function solution(numbers) {
+        let result=[];
+        let temp = numbers.sort((a,b)=>a-b);
+        for(let i=0; i<temp.length-1;i++){
+            for(let j=i+1; j<temp.length; j++){
+                if(!result.includes(temp[i]+temp[j])) result.push(temp[i]+temp[j])
+            }
+        }
+        return result.sort((a,b)=>a-b);
+    }
+</script>

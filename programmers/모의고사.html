@@ -1,0 +1,19 @@
+<script>
+    function solution(answers) {
+        var answer = [0,0,0];
+        let stu1 =[1,2,3,4,5];
+        let stu2 =[2,1,2,3,2,4,2,5]
+        let stu3 =[3,3,1,1,2,2,4,4,5,5]
+        for(let i=0;i<answers.length;i++){
+            if(answers[i]===stu1[i%stu1.length]) answer[0]++;
+            if(answers[i]===stu2[i%stu2.length]) answer[1]++;
+            if(answers[i]===stu3[i%stu3.length]) answer[2]++;
+        }
+        let temp_max = Math.max(...answer);
+        let temp = [];
+        for(let i=0; i<answer.length;i++){
+            if(answer[i] ===temp_max) temp.push(i+1);
+        }
+        return temp;
+    }
+</script>

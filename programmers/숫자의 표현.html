@@ -1,0 +1,26 @@
+<script>
+    function solution(n) {
+        let answer=0;
+        function search(pivot,s,e){
+            if(s>e) return
+            let mid = parseInt((s+e)/2)
+            let cnt = mid-pivot +1;
+            if((pivot+mid)/2*cnt === n){
+                console.log(pivot);
+                answer++;
+                return
+            }else if((pivot+mid)/2*cnt > n){
+                search(pivot,s,mid-1)
+            }else{
+                search(pivot,mid+1,e)
+            }
+            
+        }
+        for(let i=1;i<=n;i++){
+            search(i,i,n);
+        }
+        return answer;
+    }
+
+
+</script>

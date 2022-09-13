@@ -1,0 +1,14 @@
+<script>
+    function solution(new_id) {
+        let answer = new_id.toLowerCase();
+        answer = answer.replace(/[^a-z0-9\-\_\.]/g,'')
+        answer = answer.replace(/\.{2,}/g,'.')
+        answer = answer.replace(/^\./,'')
+        answer = answer.replace(/\.$/,'')
+        if(answer==='') answer='a';
+        answer=answer.substr(0,15);
+        answer = answer.replace(/\.$/,'')
+        if(answer.length<=2) answer += answer[answer.length-1].repeat(3-answer.length)
+        return answer;
+    }
+</script>

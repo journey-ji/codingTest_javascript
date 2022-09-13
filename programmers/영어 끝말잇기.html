@@ -1,0 +1,14 @@
+<script>
+    function solution(n, words) {
+        let answer = [0,0];
+        let chk = [words[0]];
+        for(let i=1; i<words.length;i++){
+            if(chk.includes(words[i]) || words[i-1][words[i-1].length-1]!==words[i][0]){
+                answer[0]=(i+1)%n===0? n:(i+1)%n
+                answer[1]=Math.ceil((i+1)/n)
+                break;
+            }else chk.push(words[i])
+        }
+        return answer;
+    }
+</script>

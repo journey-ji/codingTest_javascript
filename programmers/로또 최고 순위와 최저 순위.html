@@ -1,0 +1,21 @@
+<script>
+    function solution(lottos, win_nums) {
+        let answer = [];
+        let chk={6:1,5:2,4:3,3:4,2:5,1:6,0:6}
+        let min_cnt=0;
+        let max_cnt=0;
+        for(let i=0;i<6;i++){
+            if(!lottos[i]){
+                max_cnt++;
+            }else{
+                if(win_nums.includes(lottos[i])){
+                    min_cnt++;
+                    max_cnt++;
+                }
+            }
+        }
+        answer.push(chk[max_cnt])
+        answer.push(chk[min_cnt])
+        return answer;
+    }
+</script>

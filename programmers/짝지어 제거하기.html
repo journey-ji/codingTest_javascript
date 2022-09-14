@@ -1,0 +1,13 @@
+<script>
+    // 스택으롤 구현
+    function solution(s)
+    {
+        let stk =[];
+        for(let i=0; i<s.length;i++){
+            if(stk.length===0) stk.push(s[i])
+            else if(stk[stk.length-1]===s[i]) stk.pop()
+            else stk.push(s[i])
+        }
+        return stk.length===0? 1:0
+    }
+</script>

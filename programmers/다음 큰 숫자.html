@@ -1,0 +1,21 @@
+<script>
+    function solution(n) {
+        let cnt_n = cnt_one(n);
+        function cnt_one(num){
+            let cnt =0
+            num = num.toString(2)
+            for(let x of num){
+                if(x==='1') cnt++
+            }
+            return cnt
+        }
+        let k = n+1;
+        while(true){
+            if(cnt_n===cnt_one(k)){
+                return k;
+            }
+            k++
+            if(k>1000000) break;
+        }
+    }
+</script>

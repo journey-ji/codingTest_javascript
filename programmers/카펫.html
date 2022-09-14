@@ -1,0 +1,17 @@
+<script>
+    function solution(brown, yellow) {
+        let answer = [];
+        let x=0;
+        let y=0;
+        for(let i=3;i<brown/2;i++){
+            x = i;
+            y = (brown-(x*2))/2 +2
+            if(yellow === ((x-2)*(y-2))){
+                answer[0] = Math.max(x,y)
+                answer[1] = Math.min(x,y)
+                break;
+            }
+        }
+        return answer;   
+    }
+</script>

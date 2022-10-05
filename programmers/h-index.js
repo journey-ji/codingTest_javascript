@@ -13,3 +13,13 @@ function solution(citations) {
     }
     return answer;
 }
+
+function solution2(citations) {
+    citations = citations.sort((a,b)=>b-a);
+    var i = 0;
+    while(i + 1 <= citations[i]){
+        i++;
+    }
+    return i;
+    
+}

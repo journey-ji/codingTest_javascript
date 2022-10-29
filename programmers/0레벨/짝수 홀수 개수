@@ -1,0 +1,4 @@
+function solution(num_list) {
+    let temp = num_list.filter(ele=>ele%2===0).length
+    return [temp,num_list.length-temp];
+}

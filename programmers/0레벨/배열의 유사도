@@ -1,0 +1,7 @@
+function solution(s1, s2) {
+    let cnt =0;
+    s1.forEach(ele=>{
+        if(s2.indexOf(ele)>=0) cnt ++
+    })
+    return cnt
+}

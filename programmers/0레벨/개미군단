@@ -1,0 +1,10 @@
+function solution(hp) {
+    let temp = 0;
+    temp += parseInt(hp/5)
+    hp = hp%5
+    temp += parseInt(hp/3)
+    hp = hp%3
+    temp += parseInt(hp/1)
+    hp = hp%1
+    return temp
+}

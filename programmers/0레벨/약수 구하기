@@ -1,0 +1,11 @@
+function solution(n) {
+    let temp1 =[]
+    let temp2 =[]
+    for(let i=1; i <=Math.sqrt(n); i++){
+        if(n%i ===0){
+            temp1.push(i)
+            temp2.unshift(n/i)
+        }
+    }
+    return Array.from(new Set([...temp1,...temp2]))
+}

@@ -1,0 +1,9 @@
+function solution(my_string) {
+    let pattern = new RegExp(/[^0-9]/g);
+    pattern = my_string.replace(pattern,'');
+    let result = 0;
+    for(let i =0; i<pattern.length;i++){
+        result +=parseInt(pattern[i])
+    }
+    return result
+}

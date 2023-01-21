@@ -5,3 +5,4 @@ function solution(n, left, right) {
     }
     return answer
 }
+

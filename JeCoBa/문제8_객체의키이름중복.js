@@ -9,4 +9,4 @@ var d = {
 console.log(d['weight']);
 
 // 위 출력값을 예상하시오
-// 
+// 84

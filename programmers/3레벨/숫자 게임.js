@@ -14,5 +14,5 @@ function solution(A, B) {
 }
 /**
  * 그리디 문제
- *
+ * 
  */

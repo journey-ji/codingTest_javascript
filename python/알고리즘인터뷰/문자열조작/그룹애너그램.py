@@ -9,3 +9,6 @@ def groupAnagrams( strs):
 
 
 print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+
+# defaultdict() : 

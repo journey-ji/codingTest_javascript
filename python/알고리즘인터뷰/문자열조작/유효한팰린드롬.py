@@ -14,7 +14,7 @@ print(solution("A man, a plan, a canal: Panama"))
 from collections import deque
 
 def solution_by_deque(s):
-    strs: Deque = deque()
+    strs = deque()
     for char in s:
         if char.isalnum():
             strs.append(char.lower())
@@ -25,3 +25,4 @@ def solution_by_deque(s):
     return True
 
 print(solution_by_deque('A man, a plan, a canal: Panama'))
+

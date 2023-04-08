@@ -1,19 +1,23 @@
+
+// "4177252841"	4	"775841"
 function solution(number, k) {
   let answer = "";
   number = number.split("");
   let count = 0;
   for (let i = 0; i < k; i++) {
-    console.log(number); //:)
-    let pre = number[0];
+    console.log(`요소 삭제 전 number : ${number}`); //:)
     let preIdx = 0;
+    let pre = number[preIdx];
     for (let j = 1; j < number.length; j++) {
       let cur = number[j];
       if (pre < cur) {
-        console.log(pre);
+        console.log(`삭제 요소 인덱스 : ${preIdx}, 삭제 요소 값 : ${pre}`);
         number.splice(preIdx, 1);
+        console.log(`요소 삭제 후 number : ${number}`)
         break;
       } else {
         preIdx++;
+        pre = number[preIdx]
       }
     }
   }
@@ -21,9 +25,55 @@ function solution(number, k) {
   return answer;
 }
 
-//
+function solutioByStack(number, k) {
+  let answer = "";
+  number = number.split("");
+  //  k개 ,, 
+  for (let i = 0; i < k; i++) {
+    console.log(`요소 삭제 전 number : ${number}`); //:)
+    let preIdx = 0;
+    let pre = number[preIdx];
+    for (let j = 1; j < number.length; j++) {
+      let cur = number[j];
+      if (pre < cur) {
+        console.log(`삭제 요소 인덱스 : ${preIdx}, 삭제 요소 값 : ${pre}`);
+        number.splice(preIdx, 1);
+        console.log(`요소 삭제 후 number : ${number}`)
+        break;
+      } else {
+        preIdx++;
+        pre = number[preIdx]
+      }
+    }
+  }
+  
+  return answer;
+}
 
-// 끝난거야 ?
+// stack
+// 4
+// 4,1 (4,1비교->유지)
+// 4,1,7 (1,7비교 -> 1삭제)
+// 4,7 (4,7비교 ->4 삭제)
+// 7
+// 7,7 (7,7비교 ->유지)
+// 7,7,2 (7,2비교->유지)
+// 7,7,2,5(2,5비교 ->2삭제)
+// 7,7,5
+// 배열대신 스택사용하면 속도줄일 수 있을 것 같아.
+// 힝 머리아파 그만할래 ,,, 
+// ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+// 근데 스택쓰면 진짜 될 것 같아
+// 스택쓰라고 만든 문제같아 
+// 와 창언쓰 쩐다 머리
+// 개똑똑해 :)
+// 빨리 이제 커밋해 선아쓰
+// 
+
+
+
+
+
 // "4177252841"	4	"775841"
 // 이 입출력을 보면 알 수 있지
 // 작은수부터 삭제해야하지만, 기존 수의 정렬은 유지해야해
